@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brand Portfolio & Identity Guide — Savor of Baltistan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-slate-900: #0a1118;
+      --color-slate-800: #0f1923;
+      --color-slate-700: #1a2838;
+      --color-slate-600: #243447;
+      --color-gold: #c8922a;
+      --color-gold-light: #e0a93a;
+      --color-gold-glow: rgba(200, 146, 42, 0.25);
+      --color-leaf: #2d7a46;
+      --color-leaf-light: #38a169;
+      --color-bone: #f7f3eb;
+      --color-text: #d8d2c8;
+      --color-text-muted: #8e887e;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--color-slate-900);
+      color: var(--color-text);
+      font-family: var(--font-body);
+      line-height: 1.7;
+      font-size: 15px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Print Controls */
+    .portfolio-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10, 17, 24, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(200, 146, 42, 0.2);
+      padding: 0.85rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .portfolio-bar__title {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      color: var(--color-bone);
+      letter-spacing: 0.05em;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .portfolio-bar__badge {
+      font-size: 0.65rem;
+      font-family: var(--font-body);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      background: rgba(200, 146, 42, 0.15);
+      color: var(--color-gold-light);
+      border: 1px solid var(--color-gold);
+      padding: 2px 8px;
+      border-radius: 99px;
+    }
+
+    .btn-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--color-gold);
+      color: var(--color-slate-900);
+      font-weight: 600;
+      font-size: 0.8rem;
+      padding: 0.5rem 1.15rem;
+      border-radius: 6px;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+    }
+
+    .btn-action:hover {
+      background: var(--color-gold-light);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--color-bone);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--color-gold);
+      color: var(--color-gold);
+    }
+
+    /* Document Container */
+    .doc-wrap {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 3rem 2rem 6rem;
+    }
+
+    /* Cover Header */
+    .cover {
+      background: linear-gradient(180deg, var(--color-slate-800) 0%, rgba(15, 25, 35, 0.6) 100%);
+      border: 1px solid rgba(200, 146, 42, 0.25);
+      border-radius: 20px;
+      padding: 4rem 3rem;
+      text-align: center;
+      margin-bottom: 3.5rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    }
+
+    .cover::before {
+      content: "";
+      position: absolute;
+      top: -150px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 500px;
+      height: 300px;
+      background: radial-gradient(ellipse, rgba(200, 146, 42, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cover-logo-img {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: #ffffff;
+      padding: 8px;
+      margin: 0 auto 1.5rem;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+      border: 2px solid var(--color-gold);
+    }
+
+    .cover-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 0.75rem;
+    }
+
+    .cover-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      color: var(--color-bone);
+      line-height: 1.1;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .cover-subtitle {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.35rem;
+      color: var(--color-gold-light);
+      max-width: 680px;
+      margin: 0 auto 2rem;
+    }
+
+    .cover-meta {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 1.75rem;
+      flex-wrap: wrap;
+    }
+
+    .meta-item {
+      text-align: left;
+    }
+
+    .meta-label {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--color-text-muted);
+    }
+
+    .meta-val {
+      font-size: 0.9rem;
+      color: var(--color-bone);
+      font-weight: 500;
+    }
+
+    /* Sections */
+    .section-block {
+      background: var(--color-slate-800);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 16px;
+      padding: 3rem;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .section-block__head {
+      border-bottom: 1px solid rgba(200, 146, 42, 0.2);
+      padding-bottom: 1.25rem;
+      margin-bottom: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .section-num {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--color-gold);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 0.25rem;
+    }
+
+    .section-heading {
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      color: var(--color-bone);
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    /* Visual Guidelines Grid */
+    .guideline-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .visual-card {
+      background: var(--color-slate-700);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .visual-card__preview {
+      background: rgba(10, 17, 24, 0.6);
+      border-radius: 8px;
+      padding: 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 1.25rem;
+      min-height: 220px;
+      position: relative;
+    }
+
+    .visual-card__preview img {
+      max-width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+    }
+
+    .founder-portrait {
+      max-height: 240px;
+      object-fit: cover;
+      border: 2px solid var(--color-gold);
+    }
+
+    .visual-card__title {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      color: var(--color-bone);
+      margin-bottom: 0.5rem;
+    }
+
+    .visual-card__desc {
+      font-size: 0.9rem;
+      color: var(--color-text);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .rules-list {
+      list-style: none;
+      margin-top: auto;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 1rem;
+    }
+
+    .rules-list li {
+      font-size: 0.82rem;
+      color: var(--color-text-muted);
+      margin-bottom: 0.5rem;
+      padding-left: 1.25rem;
+      position: relative;
+    }
+
+    .rules-list li::before {
+      content: "✓";
+      color: var(--color-gold-light);
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+
+    /* Color Swatches */
+    .swatches-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .swatch-card {
+      background: var(--color-slate-700);
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .swatch-box {
+      height: 60px;
+    }
+
+    .swatch-details {
+      padding: 0.75rem;
+    }
+
+    .swatch-name {
+      font-weight: 600;
+      font-size: 0.8rem;
+      color: var(--color-bone);
+    }
+
+    .swatch-hex {
+      font-family: monospace;
+      font-size: 0.72rem;
+      color: var(--color-text-muted);
+    }
+
+    /* Founder Narrative Section */
+    .narrative-container {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    .narrative-sidebar {
+      position: sticky;
+      top: 5rem;
+    }
+
+    .narrative-img {
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid rgba(200, 146, 42, 0.3);
+      box-shadow: 0 12px 36px rgba(0,0,0,0.5);
+      margin-bottom: 1rem;
+    }
+
+    .caption-box {
+      background: var(--color-slate-700);
+      border-left: 3px solid var(--color-gold);
+      padding: 1rem;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.82rem;
+      color: var(--color-bone);
+      font-style: italic;
+    }
+
+    .narrative-content p {
+      font-size: 1.02rem;
+      line-height: 1.85;
+      margin-bottom: 1.4rem;
+      color: var(--color-text);
+    }
+
+    .narrative-quote {
+      background: linear-gradient(135deg, rgba(200, 146, 42, 0.1) 0%, rgba(45, 122, 70, 0.08) 100%);
+      border: 1px solid rgba(200, 146, 42, 0.25);
+      border-radius: 12px;
+      padding: 1.75rem 2rem;
+      margin: 2rem 0;
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-style: italic;
+      color: var(--color-bone);
+      line-height: 1.5;
+    }
+
+    /* Comparison Table */
+    .table-wrap {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    th {
+      background: var(--color-slate-700);
+      padding: 1rem 1.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-gold);
+      border-bottom: 2px solid rgba(200, 146, 42, 0.3);
+    }
+
+    td {
+      padding: 1rem 1.25rem;
+      font-size: 0.9rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      vertical-align: top;
+    }
+
+    tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    /* Product Showcase Cards */
+    .products-showcase {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .product-row {
+      background: var(--color-slate-700);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      overflow: hidden;
+      transition: transform 0.2s;
+    }
+
+    .product-row:hover {
+      border-color: rgba(200, 146, 42, 0.35);
+      transform: translateY(-2px);
+    }
+
+    .product-row__img {
+      width: 100%;
+      height: 100%;
+      min-height: 240px;
+      object-fit: cover;
+    }
+
+    .product-row__body {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-tag {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--color-gold);
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .product-name {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      color: var(--color-bone);
+      margin-bottom: 0.75rem;
+    }
+
+    .product-text {
+      font-size: 0.92rem;
+      line-height: 1.7;
+      color: var(--color-text);
+      margin-bottom: 1.25rem;
+    }
+
+    .herb-benefits {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      margin-top: auto;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .benefit-chip {
+      background: rgba(10, 17, 24, 0.5);
+      border: 1px solid rgba(45, 122, 70, 0.3);
+      padding: 0.5rem 0.75rem;
+      border-radius: 6px;
+    }
+
+    .benefit-chip__title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--color-leaf-light);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .benefit-chip__desc {
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+      line-height: 1.4;
+      margin-top: 2px;
+    }
+
+    /* Contact Directory Grid */
+    .contact-showcase {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .contact-card {
+      background: var(--color-slate-700);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 1.75rem;
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.2s;
+    }
+
+    .contact-card:hover {
+      border-color: var(--color-gold);
+      background: rgba(36, 52, 71, 0.8);
+      transform: translateY(-2px);
+    }
+
+    .contact-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(200, 146, 42, 0.12);
+      border: 1px solid var(--color-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+
+    .contact-card__label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--color-gold);
+      font-weight: 600;
+    }
+
+    .contact-card__val {
+      font-size: 1.1rem;
+      color: var(--color-bone);
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    .contact-card__sub {
+      font-size: 0.78rem;
+      color: var(--color-text-muted);
+    }
+
+    /* Print Styles */
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #1a1a1a !important;
+      }
+      .portfolio-bar {
+        display: none !important;
+      }
+      .section-block, .cover, .visual-card, .product-row {
+        background: #ffffff !important;
+        border: 1px solid #ccc !important;
+        color: #1a1a1a !important;
+        box-shadow: none !important;
+      }
+      .cover-title, .section-heading, .product-name {
+        color: #000000 !important;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .guideline-grid, .narrative-container, .product-row, .contact-showcase {
+        grid-template-columns: 1fr;
+      }
+      .swatches-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .herb-benefits {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Action Bar -->
+  <div class="portfolio-bar">
+    <div class="portfolio-bar__title">
+      <span>🏔️ Savor of Baltistan</span>
+      <span class="portfolio-bar__badge">Official Brand Portfolio · Phase 1</span>
+    </div>
+    <div style="display:flex; gap:0.75rem;">
+      <a href="index.html" class="btn-action btn-outline">← Back to Website</a>
+      <button onclick="window.print()" class="btn-action">🖨️ Print / Save as PDF</button>
+    </div>
+  </div>
+
+  <div class="doc-wrap">
+
+    <!-- COVER SECTION -->
+    <header class="cover">
+      <img src="images/logo.jpg" alt="Savor of Baltistan Logo" class="cover-logo-img" />
+      <p class="cover-eyebrow">Brand Portfolio &amp; Strategic Identity Blueprint</p>
+      <h1 class="cover-title">SAVOR OF BALTISTAN</h1>
+      <p class="cover-subtitle">"From the granite heights of Ghanche to the world — pure, uncompromised Karakoram heritage."</p>
+      
+      <div class="cover-meta">
+        <div class="meta-item">
+          <p class="meta-label">Origin Valley</p>
+          <p class="meta-val">Ghanche, Gilgit-Baltistan</p>
+        </div>
+        <div class="meta-item">
+          <p class="meta-label">Founder</p>
+          <p class="meta-val">Native of Ghanche · CS Scholar</p>
+        </div>
+        <div class="meta-item">
+          <p class="meta-label">Core Offering</p>
+          <p class="meta-val">Pure Shilajit, Wild Herbs, Dry Fruits</p>
+        </div>
+        <div class="meta-item">
+          <p class="meta-label">Portfolio Version</p>
+          <p class="meta-val">Phase 1 Delivery (Certified)</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- SECTION 1: VISUAL LAYOUT GUIDELINES -->
+    <section class="section-block">
+      <div class="section-block__head">
+        <div>
+          <p class="section-num">Section 01</p>
+          <h2 class="section-heading">Visual Layout Guidelines</h2>
+        </div>
+        <span style="font-size:0.8rem; color:var(--color-gold);">Authority &amp; Provenance Placement</span>
+      </div>
+
+      <p style="font-size:0.95rem; margin-bottom:2rem; color:var(--color-text);">
+        In an industry saturated with counterfeit Shilajit and adulterated herbal products, consumer distrust is the primary purchase barrier. Placing the <strong>Savor of Baltistan Logo</strong> and the <strong>Founder’s Mountain Portrait</strong> strategically transforms the brand from an anonymous supplier into a personal, high-integrity guarantee.
+      </p>
+
+      <div class="guideline-grid">
+        
+        <!-- Logo Guidelines Card -->
+        <div class="visual-card">
+          <div class="visual-card__preview">
+            <img src="images/logo.jpg" alt="Official Logo" style="width:140px; height:140px; background:#fff; border-radius:50%; padding:10px;" />
+          </div>
+          <h3 class="visual-card__title">The Official Brand Emblem</h3>
+          <p class="visual-card__desc">
+            Three aerodynamic green shoots arching dynamically upward to symbolize alpine vitality, pure mountain flora, and upward growth. Anchored by the bold wordmark <code>SAVOR OF BALTISTAN</code>.
+          </p>
+          <ul class="rules-list">
+            <li><strong>Clear Space:</strong> Maintain minimum 32px padding around the circular emblem.</li>
+            <li><strong>Placement:</strong> Fixed top-left in web navigation; centered on product jar lids and sealed kraft pouches.</li>
+            <li><strong>Orientation:</strong> The green shoots must always arch towards the right (symbolizing ascension and progress).</li>
+            <li><strong>Backgrounds:</strong> Crisp white, obsidian dark slate (#0a1118), or raw unbleached kraft paper.</li>
+          </ul>
+        </div>
+
+        <!-- Founder Photo Guidelines Card -->
+        <div class="visual-card">
+          <div class="visual-card__preview">
+            <img src="images/founder.jpg" alt="Founder in Traditional Balti Pakol and White Shalwar Kameez" class="founder-portrait" />
+          </div>
+          <h3 class="visual-card__title">The Founder Trust Anchor</h3>
+          <p class="visual-card__desc">
+            The authentic photograph of the founder wearing the traditional woollen Balti cap (pakol) and clean white attire, framed by an alpine glacial lake and the towering Karakoram range.
+          </p>
+          <ul class="rules-list">
+            <li><strong>Placement:</strong> Prominently featured on the "About Us" page, Homepage Trust strip, and unboxing card.</li>
+            <li><strong>Emotional Function:</strong> Visually proves indigenous connection to Ghanche; removes corporate anonymity.</li>
+            <li><strong>Typography Pairing:</strong> Always accompany with a signed personal quote: <em>"Born in Ghanche. Handcrafted with ancestral integrity."</em></li>
+            <li><strong>Treatment:</strong> Natural mountain sunlight. Never apply heavy AI beauty filters or artificial studio backdrops.</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Color Palette Swatches -->
+      <h3 style="font-family:var(--font-serif); font-size:1.3rem; color:var(--color-bone); margin-top:1.5rem;">Official Color Palette</h3>
+      <div class="swatches-grid">
+        <div class="swatch-card">
+          <div class="swatch-box" style="background:#2d7a46;"></div>
+          <div class="swatch-details">
+            <p class="swatch-name">Karakoram Leaf</p>
+            <p class="swatch-hex">#2D7A46</p>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="swatch-box" style="background:#c8922a;"></div>
+          <div class="swatch-details">
+            <p class="swatch-name">Alpine Gold</p>
+            <p class="swatch-hex">#C8922A</p>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="swatch-box" style="background:#0f1923;"></div>
+          <div class="swatch-details">
+            <p class="swatch-name">Obsidian Slate</p>
+            <p class="swatch-hex">#0F1923</p>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="swatch-box" style="background:#f7f3eb;"></div>
+          <div class="swatch-details">
+            <p class="swatch-name">Glacial Bone</p>
+            <p class="swatch-hex">#F7F3EB</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: BRAND IDENTITY & VOICE -->
+    <section class="section-block">
+      <div class="section-block__head">
+        <div>
+          <p class="section-num">Section 02</p>
+          <h2 class="section-heading">Brand Identity &amp; Voice</h2>
+        </div>
+        <span style="font-size:0.8rem; color:var(--color-gold);">Personality Framework</span>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:1.5rem; margin-bottom:2rem;">
+        <div style="background:var(--color-slate-700); padding:1.5rem; border-radius:10px;">
+          <p style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.15em; color:var(--color-gold);">Tone Dimension 01</p>
+          <h4 style="font-family:var(--font-serif); font-size:1.3rem; color:var(--color-bone); margin:0.3rem 0 0.5rem;">Authentic &amp; Grounded</h4>
+          <p style="font-size:0.85rem; color:var(--color-text-muted); line-height:1.6;">We speak with the calm certitude of the mountains. No gimmickry, no frantic countdown timers, no synthetic buzzwords.</p>
+        </div>
+        <div style="background:var(--color-slate-700); padding:1.5rem; border-radius:10px;">
+          <p style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.15em; color:var(--color-gold);">Tone Dimension 02</p>
+          <h4 style="font-family:var(--font-serif); font-size:1.3rem; color:var(--color-bone); margin:0.3rem 0 0.5rem;">Heritage-Rich &amp; Reverent</h4>
+          <p style="font-size:0.85rem; color:var(--color-text-muted); line-height:1.6;">Every product carries centuries of Balti lore. We celebrate the high-altitude seasons, ancient stone mortars, and generational wisdom.</p>
+        </div>
+        <div style="background:var(--color-slate-700); padding:1.5rem; border-radius:10px;">
+          <p style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.15em; color:var(--color-gold);">Tone Dimension 03</p>
+          <h4 style="font-family:var(--font-serif); font-size:1.3rem; color:var(--color-bone); margin:0.3rem 0 0.5rem;">Pure &amp; Accountable</h4>
+          <p style="font-size:0.85rem; color:var(--color-text-muted); line-height:1.6;">The founder’s name, phone, and reputation back every jar. Direct conversations build relationships, not just one-off transactions.</p>
+        </div>
+      </div>
+
+      <div style="background:var(--color-slate-700); padding:1.75rem; border-radius:12px; border-left:4px solid var(--color-leaf-light);">
+        <h4 style="font-family:var(--font-serif); font-size:1.2rem; color:var(--color-bone); margin-bottom:0.5rem;">The Brand Voice Promise</h4>
+        <p style="font-size:0.9rem; color:var(--color-text); line-height:1.7;">
+          <em>"We do not claim our products are magical miracles. We state that they are pure, potent, and untouched by industrial compromises—because they come from the highest rocks on earth, stewarded by the people who call those rocks home."</em>
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION 3: THE FOUNDER'S NARRATIVE -->
+    <section class="section-block">
+      <div class="section-block__head">
+        <div>
+          <p class="section-num">Section 03</p>
+          <h2 class="section-heading">The Founder's Narrative</h2>
+        </div>
+        <span style="font-size:0.8rem; color:var(--color-gold);">About Us Master Copy</span>
+      </div>
+
+      <div class="narrative-container">
+        
+        <div class="narrative-sidebar">
+          <img src="images/founder.jpg" alt="Shoaib Hassan, Founder of Savor of Baltistan" class="narrative-img" />
+          <div class="caption-box">
+            "Savor of Baltistan is not a trading company. It is my ancestral soil, my family's integrity, and my promise to you."
+            <br/><br/>
+            <strong>— Shoaib Hassan</strong><br/>
+            <span style="font-size:0.75rem; color:var(--color-text-muted);">Founder &amp; CS Scholar</span>
+          </div>
+          <div style="margin-top:1rem; display:flex; flex-direction:column; gap:0.5rem;">
+            <a href="https://shoaibhassan10.me/" target="_blank" rel="noopener" class="founder-pill-link" style="justify-content:center;">
+              🌐 shoaibhassan10.me ↗
+            </a>
+            <a href="https://www.instagram.com/shoaibhassan_10/" target="_blank" rel="noopener" class="founder-pill-link" style="justify-content:center;">
+              📸 @shoaibhassan_10 ↗
+            </a>
+          </div>
+        </div>
+
+        <div class="narrative-content">
+          <h3 style="font-family:var(--font-serif); font-size:1.9rem; color:var(--color-bone); margin-bottom:1rem;">
+            From the Granite Heights of Ghanche to Islamabad: The Story of Shoaib Hassan
+          </h3>
+
+          <p>
+            My name is <strong>Shoaib Hassan</strong>. I was born in Ghanche, a high-altitude district in Gilgit-Baltistan cradled beneath the massive peaks of the Karakoram. In our valleys, nature does not offer easy shortcuts. Life is shaped by crisp glacial air, thin atmosphere, and rocky soil that demands patient respect. What the mountains do yield, however, is of unrivaled concentration: medicinal herbs that survive freezing scree slopes, apricots cured golden under raw alpine sunshine, and the sacred black mineral resin that seeps from ancient rock faces every summer—Shilajit.
+          </p>
+
+          <p>
+            After completing my primary schooling in Skardu, I set out for Islamabad to pursue higher education, currently completing my degree in <strong>Computer Science</strong> (explore my technical portfolio at <a href="https://shoaibhassan10.me/" target="_blank" style="color:var(--color-gold-light); text-decoration:underline;">shoaibhassan10.me</a> and personal journey on Instagram <a href="https://www.instagram.com/shoaibhassan_10/" target="_blank" style="color:var(--color-gold-light); text-decoration:underline;">@shoaibhassan_10</a>). I carried with me the hope of being the first in my family to build an enterprise of international caliber—one that would make my parents, my elders, and my homeland proud.
+          </p>
+
+          <div class="narrative-quote">
+            "In Islamabad’s bustling markets, I witnessed sellers marketing diluted, mass-produced molasses as 'Pure Himalayan Shilajit'. I knew the truth. I knew what pure Shilajit smelled like, tasted like, and how it was collected by families in Ghanche."
+          </div>
+
+          <p>
+            The world was paying premium prices for diluted counterfeits, while the indigenous harvesters of Ghanche—who preserve centuries of authentic botanical knowledge—remained cut off from the global audience.
+          </p>
+
+          <p>
+            <strong>Savor of Baltistan was founded to eliminate every intermediary.</strong> By blending my computer science training with my indigenous heritage, I established a direct pipeline connecting Ghanche's mountains directly to your home. When you order from Savor of Baltistan, you are not buying from a broker. You are receiving products verified by someone who grew up on the land.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 4: VALUE PROPOSITION -->
+    <section class="section-block">
+      <div class="section-block__head">
+        <div>
+          <p class="section-num">Section 04</p>
+          <h2 class="section-heading">The Value Proposition &amp; Moat</h2>
+        </div>
+        <span style="font-size:0.8rem; color:var(--color-gold);">Why Customers Trust Us</span>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Evaluation Pillar</th>
+              <th>Commercial Competitors</th>
+              <th>Savor of Baltistan</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Traceability of Origin</strong></td>
+              <td>Vaguely labelled "Himalayan" (often aggregated from unknown low-altitude sites)</td>
+              <td><strong>Single-Origin Ghanche (3,000–4,500m):</strong> Precise district, rock face, and harvest season documented.</td>
+            </tr>
+            <tr>
+              <td><strong>Supply Chain Integrity</strong></td>
+              <td>Passes through 3–5 middlemen (importers, wholesalers, repackagers)</td>
+              <td><strong>Direct Founder Sourcing:</strong> Sourced through the founder's trusted village network in Ghanche.</td>
+            </tr>
+            <tr>
+              <td><strong>Processing &amp; Purity</strong></td>
+              <td>High-heat drying, sugar glazing, chemical solvent extraction</td>
+              <td><strong>Traditional Sun-Purification:</strong> Slow glacial water decantation, sun-cured, zero additives.</td>
+            </tr>
+            <tr>
+              <td><strong>Traditional Healing Herbs</strong></td>
+              <td>Unavailable or replaced by common garden herbs</td>
+              <td><strong>Genuine Karakoram Wild Herbs:</strong> Authentic <em>Shamdun</em>, <em>Teri</em>, and <em>Makhoting</em>.</td>
+            </tr>
+            <tr>
+              <td><strong>Customer Accountability</strong></td>
+              <td>Automated ticketing systems, anonymous web stores</td>
+              <td><strong>Direct Founder Contact:</strong> Personal phone &amp; WhatsApp (+92 312 6583222).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION 5: SENSORY PRODUCT DESCRIPTIONS -->
+    <section class="section-block">
+      <div class="section-block__head">
+        <div>
+          <p class="section-num">Section 05</p>
+          <h2 class="section-heading">Sensory Product Portfolio</h2>
+        </div>
+        <span style="font-size:0.8rem; color:var(--color-gold);">Descriptions &amp; Medicinal Profiles</span>
+      </div>
+
+      <div class="products-showcase">
+        
+        <!-- Shilajit -->
+        <div class="product-row">
+          <img src="images/shilajit.jpg" alt="Pure Shilajit Resin" class="product-row__img" />
+          <div class="product-row__body">
+            <span class="product-tag">Flagship Mineral Resin · Single-Origin Ghanche</span>
+            <h3 class="product-name">Raw Karakoram Shilajit</h3>
+            <p class="product-text">
+              Drawn from high-altitude rock fissures above 3,500 meters in Ghanche, our Shilajit is harvested during the brief summer thaw when ancient rock seams warm under intense ultraviolet light. It features an earthy, petrified botanical aroma, a deep obsidian resinous gloss, and a pungent, distinctly bitter mineral profile. Rich in bioactive fulvic acid and 84+ trace minerals, it promotes cellular ATP production, stamina, and mental acuity.
+            </p>
+            <div style="font-size:0.8rem; color:var(--color-gold); font-weight:600;">
+              Ritual: Dissolve a pea-sized resin portion (300–500mg) in warm water or raw milk every morning.
+            </div>
+          </div>
+        </div>
+
+        <!-- Herbs Trio -->
+        <div class="product-row">
+          <img src="images/herbs.jpg" alt="Karakoram Healing Herbs" class="product-row__img" />
+          <div class="product-row__body">
+            <span class="product-tag">Wild Karakoram Apothecary · Ghanche Mountain Herbs</span>
+            <h3 class="product-name">Traditional Healing Herbs: Shamdun, Teri &amp; Makhoting</h3>
+            <p class="product-text">
+              Wild-harvested along glacial streams and rugged scree slopes in Ghanche, these three herbs form the cornerstone of traditional Balti wellness. Naturally dried in clean mountain air to preserve their delicate essential oils and bio-compounds.
+            </p>
+            <div class="herb-benefits">
+              <div class="benefit-chip">
+                <p class="benefit-chip__title">🌿 Shamdun</p>
+                <p class="benefit-chip__desc">Blood pressure regulation, cellular hydration, fat loss &amp; active lipid metabolism.</p>
+              </div>
+              <div class="benefit-chip">
+                <p class="benefit-chip__title">🍃 Teri</p>
+                <p class="benefit-chip__desc">Natural kidney stone flushing, liver detoxification &amp; cooling of internal inflammation.</p>
+              </div>
+              <div class="benefit-chip">
+                <p class="benefit-chip__title">🌱 Makhoting</p>
+                <p class="benefit-chip__desc">Rapid relief from acute stomach aches, cramps, bloating &amp; intestinal ecosystem balance.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dry Fruits -->
+        <div class="product-row">
+          <img src="images/dry-fruits.jpg" alt="Baltistan Dry Fruits & Nuts" class="product-row__img" />
+          <div class="product-row__body">
+            <span class="product-tag">Heritage Orchard · Mountain Sun-Dried</span>
+            <h3 class="product-name">Premium Dry Fruits &amp; Nuts Collection</h3>
+            <p class="product-text">
+              Sun-cured in the pristine mountain atmosphere without sulphites or synthetic preserving agents. Includes small, honey-sweet <strong>Baltistani Apricots (Khubani)</strong>, thin-shelled buttery <strong>Karakoram Walnuts (Akhrot)</strong>, nutrient-dense <strong>Wild Almonds (Badam)</strong>, high-altitude <strong>Pistachios (Pista)</strong>, golden sun-ripened <strong>Figs (Anjeer)</strong>, and prized sweet <strong>Apricot Kernels (Geeri)</strong>.
+            </p>
+          </div>
+        </div>
+
+        <!-- Honey & Oil -->
+        <div class="product-row">
+          <img src="images/honey-oil.jpg" alt="Honey and Apricot Oil" class="product-row__img" />
+          <div class="product-row__body">
+            <span class="product-tag">Artisanal Elixirs · Cold-Pressed &amp; Raw</span>
+            <h3 class="product-name">Cold-Pressed Apricot Kernel Oil &amp; Wild Honey</h3>
+            <p class="product-text">
+              Silky, golden apricot kernel oil gently cold-pressed on traditional wooden expellers—extraordinary as a nutrient-dense restorative facial serum and hair tonic. Paired with unheated, monofloral wild Karakoram honey collected from high-altitude bee colonies foraging on wild mountain thyme, mint, and clover.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 6: CONTACT DIRECTORY -->
+    <section class="section-block">
+      <div class="section-block__head">
+        <div>
+          <p class="section-num">Section 06</p>
+          <h2 class="section-heading">Official Contact Directory</h2>
+        </div>
+        <span style="font-size:0.8rem; color:var(--color-gold);">Founder Channels &amp; Social Links</span>
+      </div>
+
+      <div class="contact-showcase">
+        
+        <a href="https://wa.me/923126583222" target="_blank" class="contact-card">
+          <div class="contact-icon">📱</div>
+          <div>
+            <p class="contact-card__label">WhatsApp &amp; Direct Phone</p>
+            <p class="contact-card__val">+92 312 6583222</p>
+            <p class="contact-card__sub">Direct conversation with the founder · Fast order assistance</p>
+          </div>
+        </a>
+
+        <a href="mailto:savorofbaltistan@gmail.com" class="contact-card">
+          <div class="contact-icon">✉️</div>
+          <div>
+            <p class="contact-card__label">Official Email</p>
+            <p class="contact-card__val">savorofbaltistan@gmail.com</p>
+            <p class="contact-card__sub">Wholesale, bulk gifting, and international shipping queries</p>
+          </div>
+        </a>
+
+        <a href="https://www.facebook.com/savorofbaltistan/" target="_blank" rel="noopener" class="contact-card">
+          <div class="contact-icon">📘</div>
+          <div>
+            <p class="contact-card__label">Facebook Official</p>
+            <p class="contact-card__val">facebook.com/savorofbaltistan</p>
+            <p class="contact-card__sub">Community updates, harvesting reels, and customer testimonials</p>
+          </div>
+        </a>
+
+        <a href="https://www.instagram.com/savorofbaltistan/" target="_blank" rel="noopener" class="contact-card">
+          <div class="contact-icon">📸</div>
+          <div>
+            <p class="contact-card__label">Instagram Official</p>
+            <p class="contact-card__val">@savorofbaltistan</p>
+            <p class="contact-card__sub">High-resolution visuals from Ghanche &amp; Karakoram mountains</p>
+          </div>
+        </a>
+
+        <a href="https://shoaibhassan10.me/" target="_blank" rel="noopener" class="contact-card">
+          <div class="contact-icon">💻</div>
+          <div>
+            <p class="contact-card__label">Founder Technical Portfolio</p>
+            <p class="contact-card__val">shoaibhassan10.me</p>
+            <p class="contact-card__sub">Shoaib Hassan · Computer Science scholar &amp; web architect</p>
+          </div>
+        </a>
+
+        <a href="https://www.instagram.com/shoaibhassan_10/" target="_blank" rel="noopener" class="contact-card">
+          <div class="contact-icon">📸</div>
+          <div>
+            <p class="contact-card__label">Founder Personal Instagram</p>
+            <p class="contact-card__val">@shoaibhassan_10</p>
+            <p class="contact-card__sub">Personal mountain expeditions, life journey, and updates</p>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- SECTION 7: PHASE 2 WEBSITE BLUEPRINT & E-COMMERCE ARCHITECTURE -->
+    <section class="section-block">
+      <div class="section-block__head">
+        <div>
+          <p class="section-num">Section 07 · Phase 2 Delivery</p>
+          <h2 class="section-heading">Website Blueprint &amp; E-Commerce Architecture</h2>
+        </div>
+        <span style="font-size:0.8rem; color:var(--color-gold);">Production Ready Specification</span>
+      </div>
+
+      <!-- 7.1 Sitemap -->
+      <h3 style="font-family:var(--font-serif); font-size:1.5rem; color:var(--color-bone); margin-bottom:0.75rem;">
+        1. Complete Website Sitemap
+      </h3>
+      <div style="background:var(--color-slate-700); border-radius:10px; padding:1.5rem; margin-bottom:2rem;">
+        <ul style="list-style:none; display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:1rem;">
+          <li>
+            <strong style="color:var(--color-gold);">1. Home</strong> (<code>index.html</code>)<br/>
+            <span style="font-size:0.8rem; color:var(--color-text-muted);">Hero parallax, trust metrics, featured products, founder trust strip.</span>
+          </li>
+          <li>
+            <strong style="color:var(--color-gold);">2. Shop</strong> (<code>shop.html</code>)<br/>
+            <span style="font-size:0.8rem; color:var(--color-text-muted);">Filtered catalog: Shilajit, Healing Herbs, Dry Fruits, Oils &amp; Honey, Gifts.</span>
+          </li>
+          <li>
+            <strong style="color:var(--color-gold);">3. The Karakoram Journey</strong> (<code>shilajit.html</code>)<br/>
+            <span style="font-size:0.8rem; color:var(--color-text-muted);">Deep-dive on Shilajit harvesting, lab purity test, dual checkout buttons.</span>
+          </li>
+          <li>
+            <strong style="color:var(--color-gold);">4. About the Founder</strong> (<code>about.html</code>)<br/>
+            <span style="font-size:0.8rem; color:var(--color-text-muted);">Shoaib Hassan narrative, Skardu/Islamabad journey, brand pillars.</span>
+          </li>
+          <li>
+            <strong style="color:var(--color-gold);">5. Contact Directory</strong> (<code>contact.html</code>)<br/>
+            <span style="font-size:0.8rem; color:var(--color-text-muted);">Direct founder inquiry form, WhatsApp integration, phone &amp; email.</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 7.2 Homepage Wireframe & Copy -->
+      <h3 style="font-family:var(--font-serif); font-size:1.5rem; color:var(--color-bone); margin-bottom:0.75rem;">
+        2. Homepage Wireframe &amp; Copy Architecture
+      </h3>
+      <div style="background:var(--color-slate-700); border-radius:10px; padding:1.5rem; margin-bottom:2rem;">
+        <p style="font-size:0.9rem; margin-bottom:1rem; color:var(--color-text);">
+          <strong style="color:var(--color-bone);">Hero Banner:</strong> Suggested background: Karakoram high-altitude peak &amp; alpine glacial lake in Ghanche (<code>hero-bg.jpg</code>).
+        </p>
+        <blockquote style="border-left:3px solid var(--color-gold); padding-left:1rem; font-style:italic; margin-bottom:1rem; color:var(--color-bone);">
+          "From the Karakoram, with nothing added."<br/>
+          <span style="font-size:0.85rem; color:var(--color-text-muted); font-style:normal;">
+            100% pure Shilajit, wild healing herbs, and sun-cured dry fruits sourced directly from the highest rocks of Ghanche by founder Shoaib Hassan.
+          </span>
+        </blockquote>
+        <p style="font-size:0.85rem; color:var(--color-gold);">
+          Trust Badges: 🏔️ Sourced Above 3,500m · 🌿 Zero Additives or Fillers · 🚚 Nationwide &amp; International Delivery · 🤝 Verified by Founder Shoaib Hassan
+        </p>
+      </div>
+
+      <!-- 7.3 Dual Checkout Architecture -->
+      <h3 style="font-family:var(--font-serif); font-size:1.5rem; color:var(--color-bone); margin-bottom:0.75rem;">
+        3. Dual Checkout Architecture (UI Flow &amp; Copy)
+      </h3>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-bottom:2rem;">
+        
+        <div style="background:var(--color-slate-700); border:1px solid rgba(200,146,42,0.3); border-radius:10px; padding:1.5rem;">
+          <span class="benefit-chip__title" style="color:var(--color-gold);">Option 1: Direct e-Commerce Flow</span>
+          <h4 style="color:var(--color-bone); margin:0.5rem 0;">"Pay Now &amp; Book On-Site"</h4>
+          <p style="font-size:0.85rem; color:var(--color-text-muted); line-height:1.6; margin-bottom:1rem;">
+            Customer clicks "Add to Cart" or "Direct Pay &amp; Book". A modal drawer slides open showing:
+          </p>
+          <ul class="rules-list">
+            <li>Product summary, quantity selector, and real-time total.</li>
+            <li>Customer input: Full Name, Phone / WhatsApp, Complete Delivery Address, City.</li>
+            <li>Payment selector: Cash on Delivery (COD), EasyPaisa / JazzCash, Direct Bank Transfer.</li>
+            <li>Submission generates immediate booking confirmation + optional 1-click WhatsApp receipt copy.</li>
+          </ul>
+        </div>
+
+        <div style="background:var(--color-slate-700); border:1px solid rgba(37,211,102,0.3); border-radius:10px; padding:1.5rem;">
+          <span class="benefit-chip__title" style="color:#25d366;">Option 2: WhatsApp Redirect Flow</span>
+          <h4 style="color:var(--color-bone); margin:0.5rem 0;">"Order via WhatsApp"</h4>
+          <p style="font-size:0.85rem; color:var(--color-text-muted); line-height:1.6; margin-bottom:1rem;">
+            Customer clicks the high-visibility WhatsApp button (<code>#25d366</code>). Script compiles a pre-formatted message:
+          </p>
+          <div style="background:rgba(10,17,24,0.6); padding:0.75rem; border-radius:6px; font-family:monospace; font-size:0.75rem; color:#25d366; line-height:1.5; margin-bottom:1rem;">
+            "Salaam Shoaib! I would like to order [Product Name] (Rs. [Price]). Please confirm delivery to [City] and share payment details."
+          </div>
+          <ul class="rules-list">
+            <li>Redirects directly to <code>https://wa.me/923126583222</code>.</li>
+            <li>Founder confirms stock, provides shipping tracking, and handles personalized customer service.</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- 7.4 Product Page Structure & Footer Integration -->
+      <h3 style="font-family:var(--font-serif); font-size:1.5rem; color:var(--color-bone); margin-bottom:0.75rem;">
+        4. Product Page Structure &amp; Strategic Footer Integration
+      </h3>
+      <div style="background:var(--color-slate-700); border-radius:10px; padding:1.5rem;">
+        <ul class="rules-list">
+          <li><strong>Product Page Layout:</strong> Sticky High-Res Image Gallery (Left) + Origin Altitude Badge + Sensory Description + Dual Action Buttons + Tabbed Deep-Dive (Health Benefits, Usage Ritual, Sourcing Transparency, FAQs).</li>
+          <li><strong>Footer Integration:</strong> Strategic 4-column layout linking to Products, Navigation, Direct Channels (WhatsApp +92 312 6583222, Email, Business Facebook, Business Instagram), and dedicated Founder Links (<code>shoaibhassan10.me</code> and <code>@shoaibhassan_10</code>).</li>
+        </ul>
+      </div>
+
+    </section>
+
+  </div>
+
+</body>
+</html>

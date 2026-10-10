@@ -1,0 +1,4 @@
+node_modules/
+dist/
+powershell.cmd
+.DS_Store
