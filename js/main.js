@@ -58,8 +58,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── 5. Active Nav Link ───────────────────────────────────
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav__links a').forEach(link => {
-    const href = link.getAttribute('href');
-    if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+    const rawHref = link.getAttribute('href') || '';
+    const href = rawHref.split('?')[0].split('#')[0].replace(/^\//, '');
+    if (href === currentPage || ((currentPage === '' || currentPage === 'index.html') && (href === '' || href === 'index.html'))) {
       link.classList.add('active');
     }
   });

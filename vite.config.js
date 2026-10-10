@@ -34,6 +34,7 @@ function getHtmlEntries() {
 }
 
 export default defineConfig({
+  base: '/',
   plugins: [
     react(),
     {
